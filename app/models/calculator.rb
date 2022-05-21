@@ -20,20 +20,8 @@ class Calculator
 
   def run!
     departures = Departure.where(date: @date, ship_code: @ship_code)
-    calculate_total_maximum(departures)
-    calculate_total_sold(departures)
-    calculate_unique_tour_codes(departures)
-  end
-
-  def calculate_total_maximum(departures)
-    @total_maximum = departures.map(&:maximum).inject { |sum, n| sum + n }
-  end
-
-  def calculate_total_sold(departures)
-    @total_sold = departures.map(&:sold).inject { |sum, n| sum + n }
-  end
-
-  def calculate_unique_tour_codes(departures)
+    @total_maximum = departures.map(&:maximum).reduce :+
+    @total_sold = departures.map(&:sold).reduce :+
     @tour_codes_count = departures.map(&:excursion_id).uniq.count
   end
 end
