@@ -20,7 +20,7 @@ class Importer
       if idx > 0
         Departure.create(ship_code: row[0], date: row[1], port_name: row[2], excursion_id: row[3], maximum: row[4], sold: row[5])
       end
-      idx += 1
+      idx = 1 if idx == 0
     end
   end
 end

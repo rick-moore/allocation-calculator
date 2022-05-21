@@ -16,9 +16,6 @@ class Calculator
   def initialize(date, ship_code)
     @date = date.instance_of?(String) ? Time.parse(date) : nil
     @ship_code = ship_code
-    @total_maximum = 0
-    @total_sold = 0
-    @tour_codes_count = 0
   end
 
   def run!
@@ -29,19 +26,11 @@ class Calculator
   end
 
   def calculate_total_maximum(departures)
-    sum = 0
-    departures.each do |d|
-      sum = sum + d.maximum
-    end
-    @total_maximum = sum
+    @total_maximum = departures.map(&:maximum).inject { |sum, n| sum + n }
   end
 
   def calculate_total_sold(departures)
-    sum = 0
-    departures.each do |d|
-      sum = sum + d.sold
-    end
-    @total_sold = sum
+    @total_sold = departures.map(&:sold).inject { |sum, n| sum + n }
   end
 
   def calculate_unique_tour_codes(departures)
