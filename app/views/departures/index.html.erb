@@ -1,0 +1,27 @@
+<H1>All Allocations</H1>
+<%= button_to 'New Departure', new_departure_path, method: :get %>
+<%= button_to 'Import CSV', new_importer_path, method: :get %>
+
+<table style='border: solid black 3px;'>
+  <tr>
+    <td style='width: 200px; border: solid black 1px;'><b>Ship Code</b></td>
+    <td style='width: 200px; border: solid black 1px;'><b>Date</b></td>
+    <td style='width: 200px; border: solid black 1px;'><b>Port Name</b></td>
+    <td style='width: 200px; border: solid black 1px;'><b>Excursion ID</b></td>
+    <td style='width: 200px; border: solid black 1px;'><b>Maximum</b></td>
+    <td style='width: 200px; border: solid black 1px;'><b>Sold</b></td>
+  </tr>
+  <% @departures.each do |d| %>
+    <tr>
+      <td><%= d.ship_code %></td>
+      <td><%= d.formatted_date %></td>
+      <td><%= d.port_name %></td>
+      <td><%= d.excursion_id %></td>
+      <td><%= d.maximum %></td>
+      <td><%= d.sold %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= button_to 'Calculator', new_calculator_path, method: :get %>
+

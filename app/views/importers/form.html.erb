@@ -1,0 +1,6 @@
+<H1>I AM IMPORTER FORM</H1>
+
+<%= form_for @importer do |f| %>
+  <div> Upload a CSV: <%= f.file_field :file %> </div>
+  <%= submit_tag 'Upload' %>
+<% end %>

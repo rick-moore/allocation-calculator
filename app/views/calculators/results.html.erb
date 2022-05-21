@@ -1,0 +1,9 @@
+<H1>I AM RESULTS</H1>
+
+<div>For Ship: <%= @calculator.ship_code %></div>
+<div>For Date: <%= @calculator.date %></div>
+<div>Total Max is: <%= @calculator.total_maximum %></div>
+<div>Total Sold is: <%= @calculator.total_sold %></div>
+<div>Total Unique Tour Codes is: <%= @calculator.tour_codes_count %></div>
+
+<%= button_to 'Calculate another date/tour code', new_calculator_path, method: :get %>

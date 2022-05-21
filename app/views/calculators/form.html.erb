@@ -1,0 +1,7 @@
+<H1>I AM CALCULATOR FORM</H1>
+
+<%= form_for @calculator do |f| %>
+  <div>Ship Code: <%= f.text_field 'ship_code' %></div>
+  <div>Date: <%= f.date_field 'date' %></div>
+  <%= submit_tag 'Calculate' %>
+<% end %>

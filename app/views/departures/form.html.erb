@@ -1,0 +1,11 @@
+<H1>New Allocation</H1>
+
+<%= form_with model: @departure do |f| %>
+  <div>Ship Code: <%= f.text_field :ship_code %></div>
+  <div>Date: <%= f.date_field :date %></div>
+  <div>Port Name: <%= f.text_field :port_name %></div>
+  <div>Excursion ID: <%= f.number_field :excursion_id %></div>
+  <div>Maximum: <%= f.number_field :maximum %></div>
+  <div>Sold: <%= f.number_field :sold %></div>
+  <%= submit_tag 'Save' %>
+<% end %>
