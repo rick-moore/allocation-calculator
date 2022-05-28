@@ -15,6 +15,10 @@ class DeparturesController < ApplicationController
     end
   end
 
+  def destroy_all
+    Departure.all.destroy_all
+  end
+
   private
 
   def departure_params
