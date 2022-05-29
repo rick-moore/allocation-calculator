@@ -5,6 +5,7 @@
   <%= button_to 'Import CSV', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
   <%= button_to 'Clear Departures', destroy_all_departures_path, method: :post, class: 'btn btn-danger m-3', data: { confirm: "This will clear all Departures, Are you sure?" } %>
 </div>
+<H2>Total Departures Imported: <%= @departures.count %></H2>
 <table class="table">
   <thead>
     <th scope='col'><b>Ship Code</b></td>
