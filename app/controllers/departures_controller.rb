@@ -16,7 +16,7 @@ class DeparturesController < ApplicationController
   end
 
   def destroy_all
-    Departure.all.destroy_all
+    Departure.delete_all
     redirect_to departures_path
   end
 
