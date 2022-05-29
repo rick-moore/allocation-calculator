@@ -1,27 +1,32 @@
 <H1>All Departures</H1>
-<%= button_to 'New Departure', new_departure_path, method: :get %>
-<%= button_to 'Import CSV', new_importer_path, method: :get %>
-<%= button_to 'Calculator', new_calculator_path, method: :get %>
 
-<table style='border: solid black 3px;'>
-  <tr>
-    <td style='width: 200px; border: solid black 1px;'><b>Ship Code</b></td>
-    <td style='width: 200px; border: solid black 1px;'><b>Date</b></td>
-    <td style='width: 200px; border: solid black 1px;'><b>Port Name</b></td>
-    <td style='width: 200px; border: solid black 1px;'><b>Excursion ID</b></td>
-    <td style='width: 200px; border: solid black 1px;'><b>Maximum</b></td>
-    <td style='width: 200px; border: solid black 1px;'><b>Sold</b></td>
-  </tr>
-  <% @departures.each do |d| %>
-    <tr>
-      <td><%= d.ship_code %></td>
-      <td><%= d.formatted_date %></td>
-      <td><%= d.port_name %></td>
-      <td><%= d.excursion_id %></td>
-      <td><%= d.maximum %></td>
-      <td><%= d.sold %></td>
-    </tr>
-  <% end %>
+<div class='d-flex m-3'>
+  <%= button_to 'New Departure', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Import CSV', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Calculator', new_calculator_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Clear Departures', destroy_all_departures_path, method: :post, class: 'btn btn-danger m-3', data: { confirm: "This will clear all Departures, Are you sure?" } %>
+</div>
+<table class="table">
+  <thead>
+    <th scope='col'><b>Ship Code</b></td>
+    <th scope='col'><b>Date</b></td>
+    <th scope='col'><b>Port Name</b></td>
+    <th scope='col'><b>Excursion ID</b></td>
+    <th scope='col'><b>Maximum</b></td>
+    <th scope='col'><b>Sold</b></td>
+  </thead>
+  <tbody>
+    <% @departures.each do |d| %>
+      <tr scope='row'>
+        <td><%= d.ship_code %></td>
+        <td><%= d.formatted_date %></td>
+        <td><%= d.port_name %></td>
+        <td><%= d.excursion_id %></td>
+        <td><%= d.maximum %></td>
+        <td><%= d.sold %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 
