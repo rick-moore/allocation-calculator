@@ -17,6 +17,7 @@ class DeparturesController < ApplicationController
 
   def destroy_all
     Departure.all.destroy_all
+    redirect_to departures_path
   end
 
   private

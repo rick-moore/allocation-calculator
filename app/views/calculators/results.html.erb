@@ -1,9 +1,12 @@
-<H1>I AM RESULTS</H1>
+<H1>Results</H1>
 
-<div>For Ship: <%= @calculator.ship_code %></div>
-<div>For Date: <%= @calculator.date %></div>
-<div>Total Max is: <%= @calculator.total_maximum %></div>
-<div>Total Sold is: <%= @calculator.total_sold %></div>
-<div>Total Unique Tour Codes is: <%= @calculator.tour_codes_count %></div>
+<div class='h3 p-3'>
+  <div>Ship: <%= @calculator.ship_code %></div>
+  <div>Date: <%= @calculator.date.strftime('%m/%d/%Y') %></div>
+  <div>Port: <%= @calculator.port_name %></div>
+  <div>Total Max is: <%= @calculator.total_maximum %></div>
+  <div>Total Sold is: <%= @calculator.total_sold %></div>
+  <div>Total Unique Tour Codes is: <%= @calculator.tour_codes_count %></div>
+</div>
 
-<%= button_to 'Calculate another date/tour code', new_calculator_path, method: :get %>
+<%= button_to 'Calculate another date/tour code', new_calculator_path, class: 'btn btn-success m-3', method: :get %>

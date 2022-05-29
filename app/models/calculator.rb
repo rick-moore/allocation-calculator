@@ -8,6 +8,7 @@ class Calculator
   attr_accessor :total_maximum
   attr_accessor :total_sold
   attr_accessor :tour_codes_count
+  attr_accessor :port_name
   
   def persisted?
     false
@@ -20,6 +21,7 @@ class Calculator
 
   def run!
     departures = Departure.where(date: @date, ship_code: @ship_code)
+    @port_name = departures.first.port_name
     @total_maximum = departures.map(&:maximum).reduce :+
     @total_sold = departures.map(&:sold).reduce :+
     @tour_codes_count = departures.map(&:excursion_id).uniq.count

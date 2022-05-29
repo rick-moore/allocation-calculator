@@ -1,9 +1,8 @@
 <H1>All Departures</H1>
 
 <div class='d-flex m-3'>
-  <%= button_to 'New Departure', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
-  <%= button_to 'Import CSV', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
   <%= button_to 'Calculator', new_calculator_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Import CSV', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
   <%= button_to 'Clear Departures', destroy_all_departures_path, method: :post, class: 'btn btn-danger m-3', data: { confirm: "This will clear all Departures, Are you sure?" } %>
 </div>
 <table class="table">
@@ -28,5 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-
