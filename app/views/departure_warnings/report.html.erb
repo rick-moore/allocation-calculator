@@ -1,0 +1,9 @@
+<H1 class='p-3'>Departure Warnings Report</H1>
+
+<ul>
+  <% @report_entries.each do |entry| %>
+    <li>
+      <%= entry %>
+    </li>
+  <% end %>
+</ul>
