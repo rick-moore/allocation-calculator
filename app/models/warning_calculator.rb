@@ -13,11 +13,13 @@ class WarningCalculator
   end
 
   def self.create_report
-    report = DepartureWarning.unique_excursion_ids.to_a.each_with_object({}) do |id, report|
+    idx = 0
+    report = DepartureWarning.unique_excursion_ids.to_a.each_with_object([]) do |id, report|
       dw = DepartureWarning.find_by(excursion_id: id)
       num = DepartureWarning.where(excursion_id: id).select('distinct excursion_date').count
-      report[num] = "#{id};#{dw.excursion_name};#{dw.port_name};#{dw.ship_code};#{num}"
+      report[idx] = {num => "#{id};#{dw.excursion_name};#{dw.port_name};#{dw.ship_code};#{num}"}
+      idx += 1
     end
-    report.sort{ |a,b| b <=> a }.map{ |entry| entry[1] }
+    report.sort{ |a,b| b.keys.first <=> a.keys.first }.map{ |h| h.values.first }
   end
 end
