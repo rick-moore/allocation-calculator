@@ -1,0 +1,11 @@
+<H1 class='p-3'>New Departure Warning</H1>
+
+<%= form_with model: @departure_warning do |f| %>
+  <div>Excursion ID: <%= f.text_field :excursion_id %></div>
+  <div>Excursion Date: <%= f.date_field :excursion_date %></div>
+  <div>Port Name: <%= f.text_field :port_name %></div>
+  <div>Excursion Name: <%= f.number_field :excursion_name %></div>
+  <div>Ship Code: <%= f.number_field :ship_code %></div>
+  <div>Percent Sold: <%= f.number_field :percent_sold %></div>
+  <%= submit_tag 'Save', class: 'btn btn-success' %>
+<% end %>

@@ -1,0 +1,30 @@
+<H1 class='p-3'>All Departure Warnings</H1>
+
+<div class='d-flex m-3'>
+  <%= button_to 'Calculator', departure_warnings_report_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Import CSV', new_importer_path, method: :get, class: 'btn btn-primary m-3' %>
+  <%= button_to 'Clear Departures', destroy_all_departure_warnings_path, method: :post, class: 'btn btn-danger m-3', data: { confirm: "This will clear all Departures, Are you sure?" } %>
+</div>
+<H2>Total Departure Warnings Imported: <%= @departure_warnings.count %></H2>
+<table class="table">
+  <thead>
+    <th scope='col'><b>Excursion ID</b></td>
+    <th scope='col'><b>Excursion Date</b></td>
+    <th scope='col'><b>Port Name</b></td>
+    <th scope='col'><b>Excursion Name</b></td>
+    <th scope='col'><b>Ship Code</b></td>
+    <th scope='col'><b>Percent Sold</b></td>
+  </thead>
+  <tbody>
+    <% @departure_warnings.each do |d| %>
+      <tr scope='row'>
+        <td><%= d.excursion_id %></td>
+        <td><%= d.excursion_date %></td>
+        <td><%= d.port_name %></td>
+        <td><%= d.excursion_name %></td>
+        <td><%= d.ship_code %></td>
+        <td><%= d.percent_sold %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

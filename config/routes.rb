@@ -6,6 +6,12 @@ Rails.application.routes.draw do
       post '/destroy_all', to: 'departures#destroy_all'
     end
   end
+  resources :departure_warnings do
+    collection do
+      post '/destroy_all', to: 'departure_warnings#destroy_all'
+    end
+  end
   resources :calculators
   resources :importers
+  get '/departure_warnings_report', to:'departure_warnings#report'
 end

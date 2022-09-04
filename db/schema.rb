@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_20_200546) do
+ActiveRecord::Schema.define(version: 2022_08_09_211644) do
+
+  create_table "departure_warnings", force: :cascade do |t|
+    t.integer "excursion_id"
+    t.date "excursion_date"
+    t.string "port_name"
+    t.string "excursion_name"
+    t.string "ship_code"
+    t.float "percent_sold"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "departures", force: :cascade do |t|
     t.string "ship_code"
