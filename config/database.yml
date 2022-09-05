@@ -23,10 +23,10 @@ test:
 production:
   adapter: postgresql
   encoding: utf
-  database: <%= ENV['RDS_DB_NAME']>
-  username: <%= ENV['RDS_USERNAME']>
-  password: <%= ENV['RDS_PASSWORD']>
-  host: <%= ENV['RDS_HOSTNAME']>
-  port: <%= ENV['RDS_PORT']>
+  database: <%= ENV['RDS_DB_NAME']%>
+  username: <%= ENV['RDS_USERNAME']%>
+  password: <%= ENV['RDS_PASSWORD']%>
+  host: <%= ENV['RDS_HOSTNAME']%>
+  port: <%= ENV['RDS_PORT']%>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
